@@ -37,6 +37,24 @@ namespace MennageProduct
             }
         }
 
+        public void EditProduct(string name, int? newQuantity = null, double? newPrice = null, string newName = null)
+        {
+            Product productToEdit = products.FirstOrDefault(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+
+            if (productToEdit == null)
+            {
+                Console.WriteLine("Nie znaleziono produktu o podanej nazwie.");
+                return;
+            }
+
+            if (newName != null) productToEdit.Name = newName;
+            if (newQuantity.HasValue) productToEdit.Quantity = newQuantity.Value;
+            if (newPrice.HasValue) productToEdit.Price = newPrice.Value;
+
+            Console.WriteLine("Produkt został zaktualizowany.");
+        }
+
+
         public void ShowProduct()
         {
             if (products.Count == 0)
@@ -51,5 +69,7 @@ namespace MennageProduct
                 }
             }
         }
+
+
     }
 }
