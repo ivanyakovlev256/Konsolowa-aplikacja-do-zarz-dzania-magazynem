@@ -77,7 +77,7 @@ while (true)
 
         case "5":
             Console.WriteLine("Zakończono program.");
-            return; // Zamiast `break`, użycie `return` kończy aplikację
+            return;
 
         default:
             Console.WriteLine("Niepoprawny wybór. Spróbuj ponownie.");
